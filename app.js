@@ -3,6 +3,8 @@ const express = require("express");
 const exphbs = require("express-handlebars");
 const methodOverride = require("method-override");
 
+const userDataBase = require("./models/userInfo");
+
 const app = express();
 const port = 3000;
 
@@ -25,6 +27,29 @@ app.use(methodOverride("_method"));
 //Section route
 app.get("/", (req, res) => {
   res.render("index");
+});
+
+app.post("/", (req, res) => {
+  const {email, password} = req.body
+
+  
+  userDataBase
+    .findOne({ email, password })
+    .lean()
+    .then((userInfo) => {
+      if (userInfo) {
+        // Match the user of dataBase
+        res.render('show', { userInfo })
+      } else {
+        // Can't match the user Info from dataBase
+        
+        res.redirect("/");
+      }
+    })
+    .catch((error) => {
+      console.log(error)
+      res.render('error', {error: error.message})
+    })
 });
 
 //Section Set server listener
