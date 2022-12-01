@@ -43,7 +43,7 @@ app.post("/", (req, res) => {
       } else {
         // Can't match the user Info from dataBase
         
-        res.redirect("/");
+        res.render("index", {error: "Email or Password is not wrong"});
       }
     })
     .catch((error) => {

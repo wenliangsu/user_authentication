@@ -1,5 +1,5 @@
-const userInfoData = require("../userInfo")
-const db = require("../../config/mongoose")
+const userInfoData = require("../userInfo");
+const db = require("../../config/mongoose");
 const users = [
   {
     firstName: "Tony",
@@ -29,6 +29,6 @@ const users = [
 ];
 
 db.once("open", () => {
-  userInfoData.insertMany(users)
-  console.log(`Seeds are already inserted`)
-})
+  userInfoData.insertMany(users);
+  console.log(`Seeds are already inserted`);
+});
