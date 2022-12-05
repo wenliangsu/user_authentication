@@ -1,4 +1,4 @@
-# User authentication (unfinished)
+# User authentication
 
 ## Introduction
 
@@ -16,6 +16,8 @@ This is a login page of user authentication
 
 - If the user-info doesn't exist, it will show the warning in the page
 
+- Can keep the user login and can logout
+
 ## Package environment
 
 - Express @4.18.2
@@ -23,6 +25,7 @@ This is a login page of user authentication
 - Node.js
 - Mongoose @6.7.4
 - Method-override@3.0.0
+- Express-session@1.17.3
 
 ## How to use
 
